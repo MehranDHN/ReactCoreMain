@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 import { Glyphicon, Col, Grid, Row, Table, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const customers = [
     { id: 1, companyName: 'Company 1', address: 'Address 1' },
@@ -408,3 +409,13 @@ class CustomerSelect extends React.Component {
         );
     }
 }
+
+InvoiceItem.propTypes = {
+    row: PropTypes.number,
+    item: PropTypes.object,
+    onDeleteItem: PropTypes.func,
+    categoryList: PropTypes.array,
+    categoryChange: PropTypes.func,
+    productChange: PropTypes.func,
+    qtyChange: PropTypes.func
+};
