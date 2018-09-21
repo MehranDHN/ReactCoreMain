@@ -1,0 +1,97 @@
+﻿.navbar li .glyphicon {
+    margin-right: 10px;
+}
+
+/* Highlighting rules for nav menu items */
+.navbar .navbar-nav .active a,
+.navbar .navbar-nav .active a:hover,
+.navbar .navbar-nav .active a:focus {
+    background-image: none;
+    background-color: #4189C7;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    /* On large screens, convert the nav menu to a vertical sidebar */
+    .navbar {
+        height: 100%;
+        width: calc(25% - 20px);
+    }
+    .navbar {
+        border-radius: 0;
+        border-width: 0;
+        height: 100%;
+    }
+    .navbar-header {
+        float: none;
+    }
+    .navbar .navbar-collapse {
+        border-top: 1px solid #444;
+        padding: 0;
+    }
+    .navbar .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+    .navbar .container-fluid .navbar-brand {
+        margin: 0;
+    }
+    .navbar ul {
+        float: none;
+    }
+    .navbar li {
+        float: none;
+        font-size: 15px;
+        margin: 6px;
+    }
+    .navbar li a {
+        padding: 10px 16px;
+        border-radius: 4px;
+    }
+    .navbar a {
+        /* If a menu item's text is too long, truncate it */
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .invoiceMainTitle {
+        text-align: center;
+        font-weight:700;
+        color:#c00;
+    }
+    .invoiceTitleBack{
+        background-color:#ddd;
+        padding:5px;
+        margin:5px;
+    }
+    .invoiceFooterBack {
+        background-color: #ddd;
+        padding: 15px;
+        margin: 5px;
+        text-align:right;
+    }
+    .QtyColumn{
+        width:90px;
+        text-align:center;
+        font-weight:700;
+    }
+    .CategoryColumn {
+        width: 180px;
+    }
+    .LoadingGrid{
+        margin-top:50px;
+        text-align:center;
+        font-size:40px;
+        font-weight:700;
+    }
+    .InvoiceGrid{
+        border:solid 2px #4189C7;
+        padding:0px;
+    }
+    .InvoiceItemList {
+        border: dotted 2px #ff6a00;
+        margin-right : 25px;
+
+    }
+}
