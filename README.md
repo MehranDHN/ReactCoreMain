@@ -12,3 +12,5 @@ There are several key points one must keep in mind while building with React:
 2-Composition
 
 3-Centralised state management with Redux.
+
+![MehranDHN ReactCore](https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/42249069_10215939619376918_4820808405566357504_n.jpg?_nc_cat=107&oh=7a54a683ad6caa0863146ad658215051&oe=5C3366AA)
