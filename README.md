@@ -8,5 +8,7 @@ If proper attention is not given, a reasonably large react app can quickly succu
 There are several key points one must keep in mind while building with React:
 
 1-Stateless components
+
 2-Composition
+
 3-Centralised state management with Redux.
