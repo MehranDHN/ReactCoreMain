@@ -146,6 +146,8 @@ export class InvoiceContainer extends Component {
                 this.setState(
                     {
                         invoiceItems: data,
+                        customers: customers,
+                        selectedCustomer: customers[2],
                         categories: productCategories,
                         products: productDataSource,
                         loading: false
@@ -167,8 +169,8 @@ export class InvoiceContainer extends Component {
         console.log('componentWillUpdate');
     };
     handleCategoryChange = (evt, item) => {
-        let selectedCategory = this.state.categories.find((c) => c.id === evt.target.value);
-        let productsInSelectedCategory = this.state.products.filter(product => product.categoryId === evt.target.value);
+        let selectedCategory = this.state.categories.find((c) => c.id == evt.target.value);
+        let productsInSelectedCategory = this.state.products.filter(product => product.categoryId == evt.target.value);
         this.setState({
             invoiceItems: this.state.invoiceItems.map(i => {
                 if (i.id !== item.id) {
@@ -186,7 +188,7 @@ export class InvoiceContainer extends Component {
         });
     };
     handleProductChange = (evt, item) => {
-        let selectedProduct = this.state.products.find((c) => c.id === evt.target.value);
+        let selectedProduct = this.state.products.find((c) => c.id == evt.target.value);
         this.setState({
             invoiceItems: this.state.invoiceItems.map(i => {
                 if (i.id !== item.id) {
@@ -221,10 +223,11 @@ export class InvoiceContainer extends Component {
         });
     };
     handleCustomerChange = (evt) => {
-        let selectedCustomer = this.state.customers.find((c) => c.id === evt.target.value);
+        let selectedCustomer = this.state.customers.find((c) => c.id == evt.target.value);
         this.setState({
             selectedCustomer: selectedCustomer
         }, () => {
+            console.log("setState Callback in handleCustomerChange");
             console.log(this.state);
         });
     };
