@@ -121,6 +121,7 @@ class InvoiceFooter extends Component {
 }
 export class InvoiceContainer extends Component {
     constructor(props) {
+        console.log('constructor');
         super(props);
         this.state = {
             invoiceItems: [],
@@ -130,9 +131,18 @@ export class InvoiceContainer extends Component {
             products: productDataSource,
             loading: true
         }
+
+
+    }
+    componentWillMount = () => {
+        console.log('componentWillMount');
+    };
+    componentDidMount = () => {
+        console.log('componentDidMount');
         fetch('api/Invoice/GetInvoice')
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 this.setState(
                     {
                         invoiceItems: data,
@@ -142,11 +152,23 @@ export class InvoiceContainer extends Component {
                     }
                 );
             });
-
-    }
+    };
+    componentWillReceiveProps = (nextProps) => {
+        console.log('componentWillReceiveProps');
+        console.log(nextProps);
+    };
+    shouldComponentUpdate = (nextProps, nextState) => {
+        console.log('shouldComponentUpdate');
+        console.log(nextProps);
+        console.log(nextState);
+        return true;
+    };
+    componentWillUpdate = () => {
+        console.log('componentWillUpdate');
+    };
     handleCategoryChange = (evt, item) => {
-        let selectedCategory = this.state.categories.find((c) => c.id == evt.target.value);
-        let productsInSelectedCategory = this.state.products.filter(product => product.categoryId == evt.target.value);
+        let selectedCategory = this.state.categories.find((c) => c.id === evt.target.value);
+        let productsInSelectedCategory = this.state.products.filter(product => product.categoryId === evt.target.value);
         this.setState({
             invoiceItems: this.state.invoiceItems.map(i => {
                 if (i.id !== item.id) {
@@ -164,7 +186,7 @@ export class InvoiceContainer extends Component {
         });
     };
     handleProductChange = (evt, item) => {
-        let selectedProduct = this.state.products.find((c) => c.id == evt.target.value);
+        let selectedProduct = this.state.products.find((c) => c.id === evt.target.value);
         this.setState({
             invoiceItems: this.state.invoiceItems.map(i => {
                 if (i.id !== item.id) {
@@ -199,7 +221,7 @@ export class InvoiceContainer extends Component {
         });
     };
     handleCustomerChange = (evt) => {
-        let selectedCustomer = this.state.customers.find((c) => c.id == evt.target.value);
+        let selectedCustomer = this.state.customers.find((c) => c.id === evt.target.value);
         this.setState({
             selectedCustomer: selectedCustomer
         }, () => {
@@ -233,6 +255,7 @@ export class InvoiceContainer extends Component {
         console.log(this.state.invoiceItems);
     };
     render() {
+        console.log('render');
         let totalPrice = 0;
         this.state.invoiceItems.forEach((v, i) => {
             totalPrice += (v.qty * v.price);
@@ -330,7 +353,7 @@ class InvoiceItem extends React.Component {
         this.props.qtyChange(evt, this.props.item);
     };
     render() {
-        let productList = this.props.productList.filter(product => product.categoryId == this.props.item.productCategory);
+        let productList = this.props.productList.filter(product => product.categoryId === this.props.item.productCategory);
         return (
             <tr>
                 <td>{this.props.row}</td>
